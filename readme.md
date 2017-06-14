@@ -1,7 +1,6 @@
 # Brandon's ~~Dries's~~ Dotfiles
 
-
-
+Still a work in progress as I switch from ZSH to Fish.
 
 ## What Is This?
 
