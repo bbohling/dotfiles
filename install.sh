@@ -15,24 +15,26 @@ brew tap homebrew/bundle
 brew bundle
 
 # Make ZSH the default shell environment
-chsh -s $(which zsh)
+chsh -s $(which fish)
 
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
+# Check for Oh My Fish and install if we don't have it
+if test ! $(which omg); then
+  curl -L https://get.oh-my.fish | fish
+fi
 
-# Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/lumen-installer laravel/valet tightenco/jigsaw spatie/http-status-check bramus/mixed-content-scan laravel/spark-installer
-
-# Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
+# Install Oh My Fish Plugins
+omf install brew
+omf install nvm
 
 # Install global NPM packages
-npm install --global yarn
+npm i -g david
+npm i -g gitbook-cli
+npm i -g gitbook-summary
+npm i -g pageres
+npm i -g slow-deps
+npm i -g speed-test
+npm i -g yarn
 
-# Create a Sites directory
-# This is a default directory for macOS user accounts but doesn't comes pre-installed
-mkdir $HOME/Sites
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
