@@ -20,6 +20,15 @@
 *.tar
 *.zip
 
+# Dependencies       #
+######################
+* node_modules/
+* bower_components/
+
+# Secrets            #
+######################
+* local.js
+
 # Logs and databases #
 ######################
 *.log
