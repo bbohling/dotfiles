@@ -7,9 +7,8 @@ tap 'homebrew/bundle'
 tap 'homebrew/dupes'
 tap 'homebrew/php'
 
-# Install ZSH
-brew 'zsh'
-brew 'zsh-completions'
+# Install Fish Shell
+brew 'fish'
 
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
@@ -81,11 +80,18 @@ cask 'visual-studio-code'
 cask 'vlc'
 
 # Quicklook
+cask 'betterzipql'
 cask 'qlcolorcode'
+cask 'qlimagesize'
 cask 'qlmarkdown'
+cask 'qlprettypatch'
 cask 'quicklook-json'
 cask 'quicklook-csv'
+cask 'quicklookase'
 cask 'qlstephen'
+cask 'qlvideo'
+cask 'suspicious-package'
+cask 'webpquicklook'
 
 # Fonts
 cask 'font-sauce-code-powerline'
