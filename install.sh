@@ -7,16 +7,20 @@ if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# Install NVM
-# TODO: verify that this is the latest version
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-
 # Update Homebrew recipes
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew bundle
+
+# Install NVM
+# TODO: verify that this is the latest version
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+# Install Node.js
+# TODO: verify that this is the version you want
+nvm install v6.11.0
 
 # Install global NPM packages
 npm i -g david
