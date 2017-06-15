@@ -20,7 +20,7 @@ brew 'findutils'
 brew 'bash'
 
 # Install more recent versions of some macOS tools
-brew 'homebrew/dupes/grep'
+brew 'grep'
 
 # Install Binaries
 brew 'git'
@@ -32,7 +32,7 @@ brew 'wget'
 # Development
 brew 'cloudfoundry/tap/cf-cli'
 brew 'go'
-brew 'nvm'
+#brew 'nvm' # not supported so using curl per recommendation
 brew 'php71', args: ['with-debug']
 brew 'php71-intl'
 brew 'mariadb'
@@ -48,7 +48,7 @@ cask 'arq'
 cask 'banktivity'
 cask 'bartender'
 cask 'choosy'
-cask 'dropbox'
+# cask 'dropbox' # this gets installed before anything else so remove
 cask 'firefox'
 cask 'google-chrome'
 cask 'google-drive'
@@ -64,6 +64,7 @@ cask 'navicat-for-sql-server'
 cask 'omnigraffle'
 cask 'opera'
 cask 'proxifier'
+cask 'quik'
 cask 'sequel-pro'
 cask 'slack'
 cask 'steam'
