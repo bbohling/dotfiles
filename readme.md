@@ -1,6 +1,6 @@
 # Brandon's ~~Dries's~~ Dotfiles
 
-Still a work in progress as I switch from ZSH to Fish.
+Still a work in progress as I switch ~~from ZSH to Fish~~ back to Bash.
 
 ## What Is This?
 
