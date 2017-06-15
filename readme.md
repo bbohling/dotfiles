@@ -1,6 +1,6 @@
 # Brandon's ~~Dries's~~ Dotfiles
 
-Still a work in progress as I switch ~~from ZSH to Fish~~ back to Bash. :grimacing:
+Still a work in progress as I switch ~~from ZSH to Fish~~ back to Bash. :grimacing: :grimacing: :grimacing:
 
 ## What Is This?
 
