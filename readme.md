@@ -45,3 +45,14 @@ When installing these dotfiles for the first time you'll need to backup all of y
 brew install mackup
 mackup backup
 ```
+
+## TODO
+
+- [ ] Add these dotfiles that are not part of [mackup](https://github.com/lra/mackup)
+  * .aliases
+  * .bash_prompt
+  * .exports
+  * .extra
+  * .functions
+- [ ] Determine if I should consolidate all dotfiles to this repo (vs. here and via [mackup](https://github.com/lra/mackup))
+
