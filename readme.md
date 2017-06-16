@@ -1,6 +1,6 @@
 # Brandon's Dotfiles
 
-You know the drill...[dotfiles rock](https://dotfiles.github.io/). :tada: Much inspiration came from [Mathias Bynens's dotfiles](https://github.com/mathiasbynens/dotfiles). I am sure this will evolve over time, but I just successfully set up a new MacBook Pro on June 15, 2017.
+You know the drill...[dotfiles rock](https://dotfiles.github.io/). :tada: Much inspiration came from [Mathias Bynens's dotfiles](https://github.com/mathiasbynens/dotfiles) and [Dries Vints's dotfiles](https://github.com/driesvints/dotfiles). I am sure this will evolve over time, but I just successfully set up a new MacBook Pro on June 15, 2017, using this configuration.
 
 ## A Fresh macOS Setup
 
