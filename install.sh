@@ -20,7 +20,9 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | b
 
 # Install Node.js
 # TODO: verify that this is the version you want
-nvm install v6.11.0
+nvm install stable
+nvm use stable
+nvm alias default stable
 
 # Install global NPM packages
 npm i -g david

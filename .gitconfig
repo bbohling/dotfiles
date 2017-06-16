@@ -1,0 +1,61 @@
+# I do not have a proxy set (most Intel users should) since I use Proxifier
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+	overview = log --all --since='2 weeks' --oneline --no-merges
+	graph = log --graph --all --decorate --stat --date=iso
+	stats = shortlog -sn
+[core]
+	autocrlf = input
+	safecrlf = warn
+	editor = nano
+	eol = lf
+	excludesfile = ~/.gitignore
+	longpaths = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[credential]
+	helper = osxkeychain
+	useHttpPath = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+	log = true
+[push]
+	default = simple
+[url "https://github.com"]   
+    insteadOf = git://github.com
+# [user]
+# 	name = Brandon Bohling
+# 	email = brandon.bohling@intel.com
