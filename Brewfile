@@ -50,6 +50,7 @@ cask 'bartender'
 cask 'choosy'
 # cask 'dropbox' # this gets installed before anything else so remove
 cask 'firefox'
+cask 'fluid'
 cask 'google-chrome'
 cask 'google-drive'
 cask 'handbrake'
@@ -107,6 +108,7 @@ mas 'DaisyDisk', id: 411643860
 mas 'Day One', id: 1055511498
 mas 'Deliveries', id: 924726344
 mas 'EyeFriendly', id: 587769990
+mas 'Final Cut Pro', id: 424389933
 mas 'Kindle', id: 405399194
 mas 'MindNode', id: 992076693
 mas 'Moom', id: 419330170
