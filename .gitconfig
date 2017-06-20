@@ -11,6 +11,8 @@
 	overview = log --all --since='2 weeks' --oneline --no-merges
 	graph = log --graph --all --decorate --stat --date=iso
 	stats = shortlog -sn
+[commit]
+	gpgsign = true
 [core]
 	autocrlf = input
 	safecrlf = warn
@@ -54,8 +56,9 @@
 	log = true
 [push]
 	default = simple
-[url "https://github.com"]   
+[tag]
+	gpgsign = true
+[url "https://github.com"]
     insteadOf = git://github.com
-# [user]
-# 	name = Brandon Bohling
-# 	email = brandon.bohling@intel.com
+ [user]
+ 	name = bbohling
