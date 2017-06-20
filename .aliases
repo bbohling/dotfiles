@@ -29,6 +29,8 @@ alias sbot="cd ~/Projects/intc/starterbot-9000"
 alias can='open /Applications/Google\ Chrome.app --args  --disable-web-security'
 alias ogc='open -a /Applications/Google\ Chrome.app --args --disable-web-security'
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias setworkemail="git config user.email 'brandon.bohling@intel.com'"
+alias setpersonalemail="git config user.email 'brandon@bohling.me'"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
