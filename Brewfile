@@ -125,6 +125,7 @@ mas 'Soulver', id: 413965349
 mas 'Thumbtack', id: 500948998
 mas 'Todoist', id: 585829637
 mas 'Tweetbot', id: 557168941
+mas 'Ultra Character Map, id: 520265986
 mas 'Ulysses', id: 623795237
 mas 'Xcode', id: 497799835
 mas 'xScope', id: 889428659
