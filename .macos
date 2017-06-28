@@ -130,7 +130,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
     Privileges -bool true
 
 # Auto hide menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
