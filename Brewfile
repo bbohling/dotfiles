@@ -49,6 +49,7 @@ cask 'banktivity'
 cask 'bartender'
 cask 'choosy'
 # cask 'dropbox' # this gets installed before anything else so remove
+cask 'evernote'
 cask 'firefox'
 cask 'fluid'
 cask 'google-chrome'
@@ -110,12 +111,14 @@ mas 'DaisyDisk', id: 411643860
 mas 'Day One', id: 1055511498
 mas 'Deliveries', id: 924726344
 mas 'EyeFriendly', id: 587769990
+mas 'Fantastical 2 - Calendar and Reminders', id: 975937182
 mas 'Final Cut Pro', id: 424389933
 mas 'Kindle', id: 405399194
 mas 'MindNode', id: 992076693
 mas 'Moom', id: 419330170
 mas 'Napkin', id: 581789185
 mas 'Newton', id: 1059655371
+mas 'OneDrive', id: 823766827
 mas 'Paprika Recipe Manager', id: 451907568
 mas 'Patterns', id: 429449079
 mas 'Paw', id: 584653203
