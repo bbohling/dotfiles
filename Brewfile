@@ -52,6 +52,7 @@ cask 'bartender'
 cask 'choosy'
 # cask 'dropbox' # this gets installed before anything else so remove
 cask 'evernote'
+cask 'figma'
 cask 'firefox'
 cask 'fluid'
 cask 'google-chrome'
