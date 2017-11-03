@@ -44,7 +44,11 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # init rbenv
-#if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # init java version
 #if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# add terminal title info
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_TITLE}; ${PROMPT_COMMAND}"
