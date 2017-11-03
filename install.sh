@@ -18,6 +18,9 @@ brew bundle
 # TODO: verify that this is the latest version
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
+# Install Git Auto Complete
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+
 # Install Node.js
 # TODO: verify that this is the version you want
 nvm install stable
