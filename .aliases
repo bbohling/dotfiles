@@ -31,6 +31,8 @@ alias ogc='open -a /Applications/Google\ Chrome.app --args --disable-web-securit
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias setworkemail="git config user.email 'brandon.bohling@intel.com'"
 alias setpersonalemail="git config user.email 'brandon@bohling.me'"
+alias npm-wipe="rm -rf node_modules package-lock.json && npm install"
+alias npm-clean="rm -rf node_modules package-lock.json"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
