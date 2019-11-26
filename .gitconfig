@@ -43,11 +43,11 @@
 [difftool]
 	prompt = false
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
 [gpg]
-	program = /usr/local/bin/gpg
+	process = git-lfs filter-process
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
@@ -64,3 +64,9 @@
     insteadOf = git://github.com
  [user]
  	name = bbohling
+	email = ''
+[gpg]
+	program = /usr/local/bin/gpg_wrap
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
