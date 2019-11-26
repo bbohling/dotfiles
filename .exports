@@ -37,3 +37,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # for GPG
 export GPG_TTY=$(tty)
+
+# intel certs
+#export NODE_EXTRA_CA_CERTS=~/.certs/intel.pem
