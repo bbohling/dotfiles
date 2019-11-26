@@ -42,7 +42,7 @@ brew 'terraform'
 brew 'wakatime-cli'
 
 # Apps
-cask '1password'
+# cask '1password'
 cask 'aerial'
 cask 'adobe-creative-cloud'
 cask 'alfred'
@@ -50,7 +50,7 @@ cask 'alfred'
 # cask 'banktivity'
 # cask 'bartender'
 cask 'choosy'
-# cask 'dropbox' # this gets installed before anything else so remove
+cask 'dropbox' # this gets installed before anything else so remove
 # cask 'evernote'
 # cask 'figma'
 cask 'firefox'
