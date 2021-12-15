@@ -35,15 +35,16 @@ brew 'bash'
 brew 'grep'
 
 # Install Binaries
+brew 'cloc'
 brew 'git'
 brew 'helm'
 brew 'tree'
 brew 'mackup'
 brew 'mas'
 brew 'wget'
+brew 'obsidian'
 
 # Development
-
 brew 'cloudfoundry/tap/cf-cli'
 brew 'go'
 brew 'hugo'
@@ -59,17 +60,19 @@ brew 'wakatime-cli'
 
 # Apps
 
-# cask '1password'
-cask 'aerial'
+cask '1password'
+# cask 'aerial'
 cask 'adobe-creative-cloud'
 cask 'alfred'
 # cask 'arq'
 # cask 'banktivity'
-# cask 'bartender'
-cask 'brave-browser'
+cask 'azure-data-studio'
+cask 'backblaze'
+cask 'bartender'
+# cask 'brave-browser'
 cask 'bunch'
 cask 'choosy'
-cask 'dropbox' # this gets installed before anything else so remove
+# cask 'dropbox' # this gets installed before anything else so remove
 # cask 'evernote'
 cask 'farrago'
 # cask 'figma'
@@ -77,23 +80,25 @@ cask 'fission'
 cask 'firefox'
 # cask 'fluid'
 cask 'google-chrome'
-# cask 'google-drive'
+cask 'google-drive'
 cask 'gpg-suite'
 # cask 'handbrake'
 cask 'hazel'
+cask 'hyper'
+cask 'insomnia'
 cask 'istat-menus'
 cask 'iterm2'
-cask 'kaleidoscope'
+# cask 'kaleidoscope'
 cask 'keyboard-maestro'
-cask 'little-snitch'
+# cask 'little-snitch'
 cask 'loopback'
 cask 'mark-text'
 cask 'monodraw'
-cask 'mongodb-compass'
+# cask 'mongodb-compass'
 # cask 'navicat-for-sql-server'
 cask 'omnigraffle'
 cask 'opera'
-cask 'paw'
+# cask 'paw'
 cask 'piezo'
 cask 'plantronics-hub'
 cask 'proxifier'
@@ -105,7 +110,8 @@ cask 'screenflow'
 cask 'slack'
 # cask 'spotify'
 cask 'soundsource'
-cask 'steam'
+cask 'spark'
+# cask 'steam'
 # cask 'studio-3t'
 cask 'superduper'
 # cask 'tower'
@@ -119,7 +125,7 @@ cask 'visual-studio-code'
 # cask 'vlc'
 
 # Games
-cask 'maelstrom'
+# cask 'maelstrom'
 
 # Quicklook
 cask 'azure-data-studio'
@@ -144,24 +150,24 @@ cask 'font-source-serif-pro'
 
 # Install Mac App Store apps
 # mas 'Amphetamine', id: 937984704
-mas 'Bear', id: 1091189122
+# mas 'Bear', id: 1091189122
 mas 'DaisyDisk', id: 411643860
 mas 'Day One', id: 1055511498
 mas 'Deliveries', id: 924726344
-mas 'EyeFriendly', id: 587769990
-mas 'Fantastical 2 - Calendar and Reminders', id: 975937182
+# mas 'EyeFriendly', id: 587769990
+# mas 'Fantastical 2 - Calendar and Reminders', id: 975937182
 mas 'Final Cut Pro', id: 424389933
 mas 'Icon Slate', id: 439697913
-mas 'Kindle', id: 405399194
-mas 'MindNode', id: 992076693
+# mas 'Kindle', id: 405399194
+# mas 'MindNode', id: 992076693
 mas 'Moom', id: 419330170
-mas 'Napkin', id: 581789185
+# mas 'Napkin', id: 581789185
 # mas 'Newton', id: 1059655371
 mas 'OneDrive', id: 823766827
 mas 'Paprika Recipe Manager', id: 451907568
 mas 'Patterns', id: 429449079
 # mas 'Paw', id: 584653203 # moved to using non-store version
-mas 'Pixave', id: 924891282
+# mas 'Pixave', id: 924891282
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Reeder', id: 880001334
 mas 'Soulver', id: 413965349
@@ -169,7 +175,7 @@ mas 'Thumbtack', id: 500948998
 mas 'Things 3', id: 904280696
 # mas 'Todoist', id: 585829637
 mas 'Tweetbot', id: 557168941
-mas 'Ultra Character Map', id: 520265986
-mas 'Ulysses', id: 623795237
+# mas 'Ultra Character Map', id: 520265986
+# mas 'Ulysses', id: 623795237
 mas 'Xcode', id: 497799835
 mas 'xScope', id: 889428659
