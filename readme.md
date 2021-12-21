@@ -18,7 +18,7 @@ If you did all of the above you may now follow these install instructions to set
 3. Clone this repo to `~/.dotfiles` with:
 
    ```zsh
-   git clone git@github.com:driesvints/dotfiles.git ~/.dotfiles
+   git clone git@github.com:bbohling/dotfiles.git ~/.dotfiles
    ```
 
 4. Run the installation with:
