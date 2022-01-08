@@ -111,6 +111,7 @@ cask 'screenflow'
 cask 'slack'
 # cask 'spotify'
 cask 'soundsource'
+cask 'soulver'
 cask 'spark'
 # cask 'steam'
 # cask 'studio-3t'
@@ -171,7 +172,7 @@ mas 'Patterns', id: 429449079
 # mas 'Pixave', id: 924891282
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Reeder', id: 880001334
-mas 'Soulver', id: 413965349
+# mas 'Soulver', id: 413965349
 mas 'Thumbtack', id: 500948998
 mas 'Things 3', id: 904280696
 # mas 'Todoist', id: 585829637
