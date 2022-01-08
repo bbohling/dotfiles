@@ -16,4 +16,3 @@ git clone git@github.com:bbohling/lifestream-ui.git $PERSONAL/lifestream-ui
 
 # Work
 # git clone git@github.com:blade-ui-kit/demo.git $BLADE/demo
-
