@@ -177,7 +177,7 @@ mas 'Thumbtack', id: 500948998
 mas 'Things 3', id: 904280696
 # mas 'Todoist', id: 585829637
 mas 'Tweetbot', id: 557168941
-mast 'UTC Time', id: 1538245904
+mas 'UTC Time', id: 1538245904
 # mas 'Ultra Character Map', id: 520265986
 # mas 'Ulysses', id: 623795237
 mas 'Xcode', id: 497799835
