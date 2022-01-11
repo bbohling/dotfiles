@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
@@ -10,10 +15,13 @@ export ZSH=$HOME/.oh-my-zsh
 # Enable completions
 autoload -Uz compinit && compinit
 
+# nvm stuff
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 ZSH_DISABLE_COMPFIX="true"
-
 
 ZSH_THEME="theunraveler"
 
@@ -39,11 +47,14 @@ plugins=(
   macos
   vscode
   z
-  zsh-syntax-highlighting
-  zsh-osx-autoproxy
 )
 
 source $ZSH/oh-my-zsh.sh
 
 
 #export PATH="/Users/bbohling/bin:$PATH"
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

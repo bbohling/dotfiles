@@ -19,6 +19,12 @@ fi
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# Create an .nvm directory before installing nvm via brew
+mkdir $HOME/.nvm
+
+# symlink dotfiles
+ln -s $HOME/.dotfiles/.exports $HOME/.exports
+
 # Update Homebrew recipes
 brew update
 
