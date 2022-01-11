@@ -29,5 +29,6 @@ If you did all of the above you may now follow these install instructions to set
 
 5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
 6. Restart your computer to finalize the process
+7. Do all the other stuff that you can't commit to github. :)
 
 :ok_person: bob's your uncle :ok_person:
