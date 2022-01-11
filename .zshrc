@@ -51,6 +51,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+source $DOTFILES/.extra
 
 #export PATH="/Users/bbohling/bin:$PATH"
 
