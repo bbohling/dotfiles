@@ -46,7 +46,7 @@ brew 'obsidian'
 brew 'cloudfoundry/tap/cf-cli'
 brew 'go'
 brew 'hugo'
-brew 'nvm' # not supported so using curl per recommendation
+brew 'nvm'
 brew 'mariadb', restart_service: true
 brew 'setapp'
 brew 'terraform'
@@ -68,7 +68,6 @@ cask 'microsoft-edge'
 # cask 'dropbox' # this gets installed before anything else so remove
 cask 'farrago'
 cask 'fig'
-# cask 'figma'
 cask 'fission'
 cask 'google-chrome'
 cask 'google-drive'
@@ -100,9 +99,6 @@ cask 'superduper'
 cask 'typora'
 cask 'ubersicht'
 cask 'visual-studio-code'
-
-# Games
-# cask 'maelstrom'
 
 # Quicklook
 cask 'azure-data-studio'
