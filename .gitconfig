@@ -70,3 +70,13 @@
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
+# only when on vpn
+# [http "https://github.com"]
+# proxy = http://proxy-dmz.intel.com:912
+# [http "https://lfs.github.com"]
+# proxy = http://proxy-dmz.intel.com:912
+# [http "https://github-cloud.s3.amazonaws.com"]
+# proxy = http://proxy-dmz.intel.com:912
+# [http "https://github-cloud.githubusercontent.com"]
+# proxy = http://proxy-dmz.intel.com:912
+# [credential "https://github.com"]
