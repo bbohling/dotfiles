@@ -48,9 +48,11 @@ brew 'go'
 brew 'hugo'
 brew 'nvm'
 brew 'mariadb', restart_service: true
+brew 'rustup-init'
 brew 'setapp'
 brew 'terraform'
 brew 'wakatime-cli'
+
 
 # Apps
 
@@ -64,6 +66,7 @@ cask 'bartender'
 # cask 'brave-browser'
 cask 'bunch'
 cask 'choosy'
+cask 'docker'
 cask 'microsoft-edge'
 # cask 'dropbox' # this gets installed before anything else so remove
 cask 'farrago'
@@ -115,6 +118,7 @@ cask 'suspicious-package'
 cask 'webpquicklook'
 
 # Fonts
+cask 'font-manrope'
 cask 'font-sauce-code-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
@@ -131,6 +135,7 @@ mas 'OneDrive', id: 823766827
 mas 'Paprika Recipe Manager', id: 451907568
 mas 'Patterns', id: 429449079
 mas 'Pixelmator Pro', id: 1289583905
+mas 'Plash', id: 1494023538
 mas 'Reeder', id: 880001334
 mas 'Spark – Email App by Readdle', id: 1176895641
 mas 'Tweetbot', id: 557168941
