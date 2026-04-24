@@ -20,6 +20,8 @@
 	eol = lf
 	excludesfile = ~/.gitignore
 	longpaths = true
+  packedGitLimit = 512m
+  packedGitWindowSize = 512m
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -56,12 +58,18 @@
 [merge]
 	tool = Kaleidoscope
 	log = true
+[pack]
+  deltaCacheSize = 2047m
+  packSizeLimit = 2047m
+  windowMemory = 2047m
+[pull]
+	rebase = true
 [push]
 	default = simple
 [tag]
 	gpgsign = true
 [url "https://github.com"]
-    insteadOf = git://github.com
+  insteadOf = git://github.com
  [user]
  	name = bbohling
 	email = ''

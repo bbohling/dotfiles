@@ -23,14 +23,19 @@ export HISTTIMEFORMAT
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # Set Node.js environment
-export NODE_ENV=local
+# export NODE_ENV=local
+export NODE_ENV=development
 
 # Load up NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Load Volta (alt to NVM)
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 # postgres
-export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 # export JAVA_HOME=$(/usr/libexec/java_home)
 
@@ -41,13 +46,31 @@ export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
 # for GPG
 export GPG_TTY=$(tty)
 
+# ssl key paths
+# export keyPath=/Users/bbohling/excl/ssl/localdevKey.pem
+# export certPath=/Users/bbohling/excl/ssl/localdevCert.pem
+export TLS_KEY_PATH=~/excl/ssl/localdevKey.pem
+export TLS_CERT_PATH=~/excl/ssl/localdevCert.pem
+
 # intel certs
 export NODE_EXTRA_CA_CERTS=~/excl/ssl/cacerts.pem
 
 # export ALL_PROXY=http://proxy-dmz.intel.com:912
-export HTTP_PROXY=http://proxy-dmz.intel.com:912
-export HTTPS_PROXY=http://proxy-dmz.intel.com:912
+# export HTTP_PROXY=http://proxy-dmz.intel.com:912
+# export HTTPS_PROXY=http://proxy-dmz.intel.com:912
 # unset ALL_PROXY
 # unset HTTP_PROXY
 # unset HTTPS_PROXY
-export NO_PROXY=intel.com
+# export NO_PROXY=intel.com
+
+# export GIT_TRACE_PACKET=1
+# export GIT_TRACE=1
+# export GIT_CURL_VERBOSE=1
+
+
+
+export K9S_EDITOR='code -w'
+
+export KUBECONFIG=~/.kube/amr-compute-cluster:~/.kube/amr-fm-compute-cluster
+
+export GOOGLE_CLOUD_PROJECT=employeeexperience-intel

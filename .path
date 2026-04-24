@@ -12,8 +12,12 @@ PATH=$PATH:/bin
 PATH=$PATH:/sbin
 PATH=$PATH:/usr/bin
 PATH=$PATH:/usr/sbin
-
-#PATH=$PATH:/Library/Internet 
+PATH=$PATH:/opt/homebrew/opt/sphinx-doc/bin
+PATH=$PATH:/opt/homebrew/Cellar/sphinx-doc/6.1.3/libexec/bin
+PATH=$PATH:~/.bun/bin
+PATH=$PATH:/Library/TeX/texbin
+PATH=$PATH:~/.local/bin
+#PATH=$PATH:/Library/Internet
 #PATH=$PATH:$HOME/.jenv/bin
 #PATH=$PATH:~/code/git-friendly
 #Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java

@@ -1,8 +1,4 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
+zmodload zsh/zprof
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
@@ -16,9 +12,10 @@ export ZSH=$HOME/.oh-my-zsh
 autoload -Uz compinit && compinit
 
 # nvm stuff
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 ZSH_DISABLE_COMPFIX="true"
 
@@ -42,7 +39,6 @@ plugins=(
   kubectl
   node
   npm
-  nvm
   macos
   vscode
   z
@@ -54,8 +50,75 @@ source $ZSH/oh-my-zsh.sh
 
 #export PATH="/Users/bbohling/bin:$PATH"
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
 export PATH="/Users/bbohling/bin:$PATH"
+
+#######
+# Determine if Proxies are needed or not
+#######
+
+if `nc -z proxy-dmz.intel.com 911 2>&1 | grep -q succeeded ` ; then
+#if `nslookup proxy-dmz.itel.com 2>&1 ` ; then
+  # launchctl setenv https_proxy http://proxy-dmz.intel.com:912
+  # launchctl setenv http_proxy http://proxy-dmz.intel.com:912
+  launchctl setenv HTTPS_PROXY http://proxy-dmz.intel.com:912
+  launchctl setenv HTTP_PROXY http://proxy-dmz.intel.com:912
+  export all_proxy="http://proxy-dmz.intel.com:912"
+  export http_proxy="http://proxy-dmz.intel.com:912"
+  export https_proxy="http://proxy-dmz.intel.com:912"
+  # export HTTP_PROXY="http://proxy-dmz.intel.com:912"
+  # export HTTPS_PROXY="http://proxy-dmz.intel.com:912"
+  export socks_proxy="socks5://proxy-dmz.intel.com:1080"
+  # export NODE_USE_ENV_PROXY=1
+  
+ export no_proxy="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
+#  export NO_PROXY="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
+  export proxy_status=proxy_yes
+#  git config --global http.proxy http://proxy-dmz.intel.com:912
+#  git config --global https.proxy http://proxy-dmz.intel.com:912
+
+# Set prompt to Blue for on VPN
+#  export PS1="\e[${Blueshell}m[\u@\h \W]\$ \e[m"
+ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+ echo "!! Intel proxies detected !!"
+ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+ else
+ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+ echo "!! Intel proxies unset !!"
+ echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+ unset all_proxy
+ unset http_proxy
+ unset https_proxy
+ unset socks_proxy
+ unset HTTP_PROXY
+ unset HTTPS_PROXY
+ unset NO_PROXY
+#  unset request_proxy
+ unset no_proxy
+ launchctl unsetenv https_proxy http://proxy-dmz.intel.com:912
+ launchctl unsetenv http_proxy http://proxy-dmz.intel.com:912
+#  launchctl unsetenv HTTPS_PROXY http://proxy-dmz.intel.com:912
+#  launchctl unsetenv HTTP_PROXY http://proxy-dmz.intel.com:912
+ export proxy_status=no_proxy
+#  git config --global --unset http.proxy
+#  git config --global --unset https.proxy
+
+# Set prompt to cyan for off VPN
+#  export PS1="\e[${Cyanshell}m[\u@\h \W]\$ \e[m"
+fi
+
+source /Users/bbohling/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+export PATH="/opt/homebrew/opt/sphinx-doc/bin:$PATH"
+
+# bun completions
+[ -s "/Users/bbohling/.bun/_bun" ] && source "/Users/bbohling/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  # eval "$(oh-my-posh init zsh)"
+  # eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/json.omp.json)"
+  eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)"
+fi
