@@ -96,6 +96,6 @@
 # ~/excl/ contains work repos; ~/excl/🥃/ is personal. Order matters: the personal
 # include comes after the work one so it wins for repos under ~/excl/🥃/.
 [includeIf "gitdir:~/excl/"]
-	path = ~/.dotfiles/.gitconfig-work
+	path = ~/.gitconfig-work
 [includeIf "gitdir:~/excl/🥃/"]
-	path = ~/.dotfiles/.gitconfig-personal
+	path = ~/.gitconfig-personal
