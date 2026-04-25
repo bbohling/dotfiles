@@ -43,12 +43,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-
-
-#export PATH="/Users/bbohling/bin:$PATH"
-
-export PATH="/Users/bbohling/bin:$PATH"
-
 #######
 # Determine if Proxies are needed or not
 #######
@@ -104,14 +98,8 @@ fi
 
 source /Users/bbohling/.docker/init-zsh.sh || true # Added by Docker Desktop
 
-export PATH="/opt/homebrew/opt/sphinx-doc/bin:$PATH"
-
-# bun completions
-[ -s "/Users/bbohling/.bun/_bun" ] && source "/Users/bbohling/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions (BUN_INSTALL set in .zshenv)
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   # eval "$(oh-my-posh init zsh)"

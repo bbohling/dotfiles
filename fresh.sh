@@ -15,9 +15,10 @@ if test ! $(which brew); then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
-ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
+# Symlink config files from .dotfiles into $HOME (-sf replaces atomically)
+ln -sf $HOME/.dotfiles/.zshrc $HOME/.zshrc
+ln -sf $HOME/.dotfiles/.zshenv $HOME/.zshenv
+ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 
 # Create an .nvm directory before installing nvm via brew
 mkdir $HOME/.nvm

@@ -13,17 +13,11 @@ tap 'cloudfoundry/tap'
 # tap 'homebrew/dupes'
 # tap 'homebrew/php'
 
-# Install Fish Shell
-brew 'fish'
-
 # Install GNU core utilities (those that come with macOS are outdated)
 brew 'coreutils'
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew 'findutils'
-
-# Install Bash 4
-brew 'bash'
 
 # Install more recent versions of some macOS tools
 brew 'grep'
@@ -46,7 +40,6 @@ brew 'cloudfoundry/tap/cf-cli'
 brew 'go'
 brew 'hugo'
 # brew 'nvm'
-brew 'mariadb', restart_service: true
 brew 'rustup-init'
 brew 'setapp'
 brew 'terraform'
@@ -74,13 +67,11 @@ cask 'google-chrome'
 cask 'google-drive'
 cask 'gpg-suite'
 cask 'hazel'
-cask 'hyper'
 cask 'insomnia'
 cask 'istat-menus'
 cask 'iterm2'
 cask 'keyboard-maestro'
 cask 'loopback'
-cask 'mark-text'
 cask 'microblog'
 cask 'monodraw'
 cask 'netnewswire'
@@ -99,11 +90,9 @@ cask 'soundsource'
 cask 'soulver'
 cask 'superduper'
 cask 'typora'
-cask 'ubersicht'
 cask 'visual-studio-code'
 
 # Quicklook
-cask 'azure-data-studio'
 cask 'qlcolorcode'
 cask 'qlimagesize'
 cask 'qlmarkdown'

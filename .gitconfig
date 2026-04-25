@@ -1,4 +1,5 @@
-# I do not have a proxy set (most Intel users should) since I use Proxifier
+[init]
+	defaultBranch = main
 [alias]
 	co = checkout
 	ci = commit
@@ -16,7 +17,7 @@
 [core]
 	autocrlf = input
 	safecrlf = warn
-	editor = nano
+	editor = code --wait
 	eol = lf
 	excludesfile = ~/.gitignore
 	longpaths = true
@@ -48,8 +49,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
-[gpg]
-	process = git-lfs filter-process
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
@@ -70,21 +69,33 @@
 	gpgsign = true
 [url "https://github.com"]
   insteadOf = git://github.com
- [user]
- 	name = bbohling
-	email = ''
-[gpg]
-	program = /usr/local/bin/gpg_wrap
+[user]
+	name = bbohling
+	email = brandon@bohling.me
+	signingkey = 1A03FC211D0455B2
+
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
-# only when on vpn
-# [http "https://github.com"]
-# proxy = http://proxy-dmz.intel.com:912
-# [http "https://lfs.github.com"]
-# proxy = http://proxy-dmz.intel.com:912
-# [http "https://github-cloud.s3.amazonaws.com"]
-# proxy = http://proxy-dmz.intel.com:912
-# [http "https://github-cloud.githubusercontent.com"]
-# proxy = http://proxy-dmz.intel.com:912
-# [credential "https://github.com"]
+
+# Intel proxy for git over HTTPS (work repos). .gitconfig-personal unsets these.
+# These MUST come before the [includeIf] blocks below — last write wins, and the
+# personal include needs to land after the proxy URLs to override them.
+[http]
+	postBuffer = 1048576000
+[http "https://github.com"]
+	proxy = http://proxy-dmz.intel.com:912
+[http "https://lfs.github.com"]
+	proxy = http://proxy-dmz.intel.com:912
+[http "https://github-cloud.s3.amazonaws.com"]
+	proxy = http://proxy-dmz.intel.com:912
+[http "https://github-cloud.githubusercontent.com"]
+	proxy = http://proxy-dmz.intel.com:912
+
+# Per-directory identity overrides — keep these at the bottom so they win.
+# ~/excl/ contains work repos; ~/excl/🥃/ is personal. Order matters: the personal
+# include comes after the work one so it wins for repos under ~/excl/🥃/.
+[includeIf "gitdir:~/excl/"]
+	path = ~/.dotfiles/.gitconfig-work
+[includeIf "gitdir:~/excl/🥃/"]
+	path = ~/.dotfiles/.gitconfig-personal

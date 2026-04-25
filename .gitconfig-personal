@@ -1,0 +1,15 @@
+[user]
+	email = brandon@bohling.me
+	signingkey = 1A03FC211D0455B2
+
+# Personal repos go straight to GitHub — unset the Intel proxies set in .gitconfig.
+[http]
+	proxy =
+[http "https://github.com"]
+	proxy =
+[http "https://lfs.github.com"]
+	proxy =
+[http "https://github-cloud.s3.amazonaws.com"]
+	proxy =
+[http "https://github-cloud.githubusercontent.com"]
+	proxy =
