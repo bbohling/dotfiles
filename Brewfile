@@ -57,6 +57,7 @@ brew 'wakatime-cli'
 # Apps
 
 cask '1password'
+cask '1password-cli'
 # cask 'aerial'
 cask 'adobe-creative-cloud'
 cask 'alfred'
