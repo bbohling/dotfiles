@@ -1,6 +1,12 @@
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias f="open -a Finder ./"
 
+# eza — modern ls. Group dirs first; show git status in long views.
+alias ls='eza --group-directories-first'
+alias ll='eza -l --group-directories-first --git'
+alias la='eza -la --group-directories-first --git'
+alias lt='eza --tree --level=2 --group-directories-first'
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"

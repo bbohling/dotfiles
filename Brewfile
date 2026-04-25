@@ -30,6 +30,12 @@ brew 'helm'
 brew 'jq'
 brew 'mise'
 brew 'tree'
+
+# Modern CLI replacements
+brew 'eza'        # ls with icons + git awareness
+brew 'fzf'        # fuzzy finder (Ctrl-R for history, Ctrl-T for files)
+brew 'ripgrep'    # faster, gitignore-aware grep (`rg`)
+brew 'zoxide'     # smarter cd; learns frecent dirs (`z foo`, `zi` for picker)
 brew 'mackup'
 brew 'mas'
 brew 'stow'

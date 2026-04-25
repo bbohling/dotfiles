@@ -85,6 +85,15 @@ fi
 # existing Volta-pinned projects until they're migrated.
 command -v mise >/dev/null 2>&1 && eval "$(mise activate zsh)"
 
+# zoxide — `z foo` jumps to a frecent dir, `zi` opens the fzf picker
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
+
+# fzf shell integration: Ctrl-R history, Ctrl-T files, Alt-C cd, **<Tab> completion.
+# stderr suppressed because `fzf --zsh` emits harmless zle warnings under `zsh -c`.
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh) 2>/dev/null
+fi
+
 # ---- Prompt ----
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
