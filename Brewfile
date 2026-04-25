@@ -28,6 +28,7 @@ brew 'caprine' # Facebook Messenger
 brew 'git'
 brew 'helm'
 brew 'jq'
+brew 'mise'
 brew 'tree'
 brew 'mackup'
 brew 'mas'

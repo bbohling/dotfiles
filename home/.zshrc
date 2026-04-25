@@ -80,6 +80,11 @@ fi
 [ -f "$HOME/.docker/init-zsh.sh" ] && source "$HOME/.docker/init-zsh.sh"
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
+# mise — runtime version manager. Activates only in dirs with .mise.toml or
+# .tool-versions; otherwise leaves PATH alone, so Volta continues to handle
+# existing Volta-pinned projects until they're migrated.
+command -v mise >/dev/null 2>&1 && eval "$(mise activate zsh)"
+
 # ---- Prompt ----
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
