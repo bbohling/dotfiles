@@ -32,6 +32,7 @@ brew 'mise'
 brew 'tree'
 
 # Modern CLI replacements
+brew 'bat'        # cat with syntax highlighting and paging
 brew 'eza'        # ls with icons + git awareness
 brew 'fzf'        # fuzzy finder (Ctrl-R for history, Ctrl-T for files)
 brew 'ripgrep'    # faster, gitignore-aware grep (`rg`)
