@@ -7,10 +7,6 @@
 #*/
 
 # Taps
-tap 'homebrew/cask-cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-drivers'
-tap 'homebrew/cask-versions'
 tap 'cloudfoundry/tap'
 
 # tap 'homebrew/bundle'
@@ -73,7 +69,6 @@ cask 'docker'
 cask 'microsoft-edge'
 # cask 'dropbox' # this gets installed before anything else so remove
 cask 'farrago'
-cask 'fig'
 cask 'fission'
 cask 'google-chrome'
 cask 'google-drive'

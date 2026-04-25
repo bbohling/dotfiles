@@ -1,4 +1,3 @@
-zmodload zsh/zprof
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
@@ -16,8 +15,6 @@ autoload -Uz compinit && compinit
 #   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 #   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-
-ZSH_DISABLE_COMPFIX="true"
 
 ZSH_THEME="theunraveler"
 
@@ -56,8 +53,7 @@ export PATH="/Users/bbohling/bin:$PATH"
 # Determine if Proxies are needed or not
 #######
 
-if `nc -z proxy-dmz.intel.com 911 2>&1 | grep -q succeeded ` ; then
-#if `nslookup proxy-dmz.itel.com 2>&1 ` ; then
+if timeout 0.3 nc -z proxy-dmz.intel.com 911 2>/dev/null ; then
   # launchctl setenv https_proxy http://proxy-dmz.intel.com:912
   # launchctl setenv http_proxy http://proxy-dmz.intel.com:912
   launchctl setenv HTTPS_PROXY http://proxy-dmz.intel.com:912
@@ -94,8 +90,8 @@ if `nc -z proxy-dmz.intel.com 911 2>&1 | grep -q succeeded ` ; then
  unset NO_PROXY
 #  unset request_proxy
  unset no_proxy
- launchctl unsetenv https_proxy http://proxy-dmz.intel.com:912
- launchctl unsetenv http_proxy http://proxy-dmz.intel.com:912
+ launchctl unsetenv https_proxy
+ launchctl unsetenv http_proxy
 #  launchctl unsetenv HTTPS_PROXY http://proxy-dmz.intel.com:912
 #  launchctl unsetenv HTTP_PROXY http://proxy-dmz.intel.com:912
  export proxy_status=no_proxy

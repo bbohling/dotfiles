@@ -22,12 +22,17 @@
 
 # Dependencies       #
 ######################
-* node_modules/
-* bower_components/
+node_modules/
+bower_components/
 
 # Secrets            #
 ######################
-* local.js
+local.js
+*.env
+.env.*
+!.env.example
+*.pem
+*.key
 
 # Logs and databases #
 ######################
