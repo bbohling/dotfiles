@@ -1,108 +1,87 @@
-# Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
+# ~/.zshrc — interactive shell config.
+# .zshenv handles PATH and tool-runtime env; this file is interactive-only.
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# ---- Options ----
+setopt AUTO_CD                # `cd` by typing the dir name
+setopt AUTO_PUSHD             # cd pushes onto the dirstack
+setopt PUSHD_IGNORE_DUPS
+setopt EXTENDED_GLOB          # **, ^, ~, etc.
+setopt INTERACTIVE_COMMENTS   # allow # comments at the prompt
 
-# Enable completions
-autoload -Uz compinit && compinit
+# ---- History ----
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=32768
+SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY       # save timestamps
+setopt SHARE_HISTORY          # share history across sessions
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE      # don't record commands starting with space
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY            # verify history expansions before running
 
-# nvm stuff
-# export NVM_DIR="$HOME/.nvm"
-#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
-ZSH_THEME="theunraveler"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$DOTFILES
-
-
-plugins=(
-  brew
-  git
-  kubectl
-  node
-  npm
-  macos
-  vscode
-  z
-)
-
-source $ZSH/oh-my-zsh.sh
-
-#######
-# Determine if Proxies are needed or not
-#######
-
-if timeout 0.3 nc -z proxy-dmz.intel.com 911 2>/dev/null ; then
-  # launchctl setenv https_proxy http://proxy-dmz.intel.com:912
-  # launchctl setenv http_proxy http://proxy-dmz.intel.com:912
-  launchctl setenv HTTPS_PROXY http://proxy-dmz.intel.com:912
-  launchctl setenv HTTP_PROXY http://proxy-dmz.intel.com:912
-  export all_proxy="http://proxy-dmz.intel.com:912"
-  export http_proxy="http://proxy-dmz.intel.com:912"
-  export https_proxy="http://proxy-dmz.intel.com:912"
-  # export HTTP_PROXY="http://proxy-dmz.intel.com:912"
-  # export HTTPS_PROXY="http://proxy-dmz.intel.com:912"
-  export socks_proxy="socks5://proxy-dmz.intel.com:1080"
-  # export NODE_USE_ENV_PROXY=1
-  
- export no_proxy="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
-#  export NO_PROXY="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
-  export proxy_status=proxy_yes
-#  git config --global http.proxy http://proxy-dmz.intel.com:912
-#  git config --global https.proxy http://proxy-dmz.intel.com:912
-
-# Set prompt to Blue for on VPN
-#  export PS1="\e[${Blueshell}m[\u@\h \W]\$ \e[m"
- echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
- echo "!! Intel proxies detected !!"
- echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
- else
- echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
- echo "!! Intel proxies unset !!"
- echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
- unset all_proxy
- unset http_proxy
- unset https_proxy
- unset socks_proxy
- unset HTTP_PROXY
- unset HTTPS_PROXY
- unset NO_PROXY
-#  unset request_proxy
- unset no_proxy
- launchctl unsetenv https_proxy
- launchctl unsetenv http_proxy
-#  launchctl unsetenv HTTPS_PROXY http://proxy-dmz.intel.com:912
-#  launchctl unsetenv HTTP_PROXY http://proxy-dmz.intel.com:912
- export proxy_status=no_proxy
-#  git config --global --unset http.proxy
-#  git config --global --unset https.proxy
-
-# Set prompt to cyan for off VPN
-#  export PS1="\e[${Cyanshell}m[\u@\h \W]\$ \e[m"
+# ---- Completions ----
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
 
-source /Users/bbohling/.docker/init-zsh.sh || true # Added by Docker Desktop
+# Speed up compinit: full check at most once per day, fast otherwise.
+autoload -Uz compinit
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
-# bun completions (BUN_INSTALL set in .zshenv)
+# ---- Plugins (installed via brew) ----
+[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# syntax-highlighting must be sourced LAST among interactive plugins
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ---- Dotfiles modules ----
+for f in "$DOTFILES"/aliases.zsh "$DOTFILES"/exports.zsh "$DOTFILES"/functions.zsh; do
+  [ -f "$f" ] && source "$f"
+done
+[ -f "$DOTFILES/extra.zsh" ] && source "$DOTFILES/extra.zsh"
+
+# Reload zsh in place. Replaces `omz reload`.
+alias reload='exec zsh'
+
+# ---- Intel proxy detection ----
+if timeout 0.3 nc -z proxy-dmz.intel.com 911 2>/dev/null ; then
+  launchctl setenv HTTPS_PROXY http://proxy-dmz.intel.com:912
+  launchctl setenv HTTP_PROXY http://proxy-dmz.intel.com:912
+  export http_proxy="http://proxy-dmz.intel.com:912"
+  export https_proxy="http://proxy-dmz.intel.com:912"
+  export all_proxy="http://proxy-dmz.intel.com:912"
+  export socks_proxy="socks5://proxy-dmz.intel.com:1080"
+  export no_proxy="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
+  export proxy_status=proxy_yes
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  echo "!! Intel proxies detected !!"
+  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+else
+  unset all_proxy http_proxy https_proxy socks_proxy HTTP_PROXY HTTPS_PROXY no_proxy NO_PROXY
+  launchctl unsetenv https_proxy
+  launchctl unsetenv http_proxy
+  export proxy_status=no_proxy
+  echo "~~~~~~~~~~~~~~~~~~~~~~~"
+  echo "!! Intel proxies unset !!"
+  echo "~~~~~~~~~~~~~~~~~~~~~~~"
+fi
+
+# ---- Tool integrations ----
+[ -f "$HOME/.docker/init-zsh.sh" ] && source "$HOME/.docker/init-zsh.sh"
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  # eval "$(oh-my-posh init zsh)"
-  # eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/json.omp.json)"
-  eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)"
+# ---- Prompt ----
+# Replaced by starship in P2.C; oh-my-posh kept as fallback during transition.
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ] && command -v oh-my-posh >/dev/null 2>&1; then
+  eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)" 2>/dev/null || true
 fi

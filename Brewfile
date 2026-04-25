@@ -33,6 +33,11 @@ brew 'mackup'
 brew 'mas'
 brew 'stow'
 brew 'wget'
+
+# Zsh plugins (replaces oh-my-zsh, sourced explicitly from .zshrc)
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
+brew 'zsh-completions'
 brew 'watch'
 brew 'obsidian'
 
