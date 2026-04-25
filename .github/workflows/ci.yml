@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: brew install shellcheck
+
+      - name: Shellcheck *.sh and .macos
+        run: shellcheck --severity=warning bootstrap.sh clone.sh ssh.sh .macos
+
+      - name: Zsh parse check
+        run: |
+          set -e
+          for f in *.zsh home/.zshrc home/.zshenv; do
+            echo "  $f"
+            zsh -n "$f"
+          done
+
+      - name: Brewfile parses
+        run: brew bundle list --file=Brewfile > /dev/null
