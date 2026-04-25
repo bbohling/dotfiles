@@ -81,7 +81,6 @@ fi
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 # ---- Prompt ----
-# Replaced by starship in P2.C; oh-my-posh kept as fallback during transition.
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ] && command -v oh-my-posh >/dev/null 2>&1; then
-  eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)" 2>/dev/null || true
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi

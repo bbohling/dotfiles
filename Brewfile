@@ -48,6 +48,7 @@ brew 'hugo'
 # brew 'nvm'
 brew 'rustup-init'
 brew 'setapp'
+brew 'starship'
 brew 'terraform'
 brew 'wakatime-cli'
 

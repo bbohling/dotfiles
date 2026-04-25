@@ -4,6 +4,9 @@
 
 export DOTFILES=$HOME/.dotfiles
 
+# Starship reads its config from this path
+export STARSHIP_CONFIG="$DOTFILES/starship.toml"
+
 # Editor. `code --wait` makes git/less block until the file is closed.
 export EDITOR="code --wait"
 export VISUAL="$EDITOR"
