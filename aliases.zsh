@@ -17,6 +17,14 @@ alias k=kubectl
 alias kjobs="kubectl get jobs --field-selector status.successful!=1"
 alias kdeps="~/excl/shell/describe_deployments.sh"
 
+# Per-repo git identity overrides. ~/.gitconfig has [includeIf] blocks that
+# auto-apply work identity under ~/excl/ and personal under ~/excl/🥃/, but
+# these aliases force it explicitly when a repo lives elsewhere.
+alias setworkemail="git config user.email 'brandon.bohling@intel.com'"
+alias setpersonalemail="git config user.email 'brandon@bohling.me'"
+alias setworkgpg="git config user.signingkey '8249D337BA4ABB08'"
+alias setpersonalgpg="git config user.signingkey '1A03FC211D0455B2'"
+
 # count lines of code
 alias js-cloc="cloc --exclude-dir=node_modules ."
 
