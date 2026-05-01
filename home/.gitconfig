@@ -38,7 +38,7 @@
 	untracked = cyan
 [credential]
 	helper = osxkeychain
-	useHttpPath = true
+	# useHttpPath = true
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
