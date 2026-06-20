@@ -34,3 +34,5 @@ alias work="cd $HOME/excl"
 
 # GitHub Copilot for GitHub CLI
 alias ghcp="gh copilot"
+
+alias fixwifi="sudo killall -HUP mDNSResponder"
