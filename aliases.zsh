@@ -23,7 +23,7 @@ alias kdeps="~/excl/shell/describe_deployments.sh"
 alias setworkemail="git config user.email 'brandon.bohling@intel.com'"
 alias setpersonalemail="git config user.email 'brandon@bohling.me'"
 alias setworkgpg="git config user.signingkey '8249D337BA4ABB08'"
-alias setpersonalgpg="git config user.signingkey '1A03FC211D0455B2'"
+alias setpersonalgpg="git config user.signingkey 'EB6F1C3A12DB1997'"
 
 # count lines of code
 alias js-cloc="cloc --exclude-dir=node_modules ."
