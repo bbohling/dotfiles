@@ -20,3 +20,5 @@ export K9S_EDITOR='code -w'
 
 # Google Cloud
 export GOOGLE_CLOUD_PROJECT=employeeexperience-intel
+
+# TRMNL_PLUGIN_UUID is a secret; resolved at runtime from 1Password in extra.zsh.
