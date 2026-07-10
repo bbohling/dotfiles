@@ -77,7 +77,9 @@ Everything under `~/excl/` resolves to the work identity (`brandon.bohling@intel
 2. Settings → Developer → enable **"Connect with 1Password CLI"**.
 3. Make sure the relevant items exist in your **Private** vault. Field defaults to `credential` (API Credential template); use `password` for Login items.
 4. New shell, then `op whoami` should return your account info instantly.
-5. `load-secrets` populates the env vars. Verify with `env | grep -E 'OPENAI|LB_TOKEN'`.
+5. `load-secrets` populates the env vars. Verify with `env | grep -E 'OPENAI|LB_TOKEN|TRMNL_PLUGIN_UUID'`.
+
+Managed secrets: `OPENAI_API_KEY`, `LB_TOKEN`, `TRMNL_PLUGIN_UUID` (all resolved from the **Private** vault).
 
 If `op` is not signed in, `extra.zsh` skips silently (won't error). The auto-load is gated on env-vars-not-already-set, so `reload`/`exec zsh` inherits the secrets and skips re-probing — only the first shell of the day pays the timeout cost.
 
@@ -90,7 +92,7 @@ If `op` is not signed in, `extra.zsh` skips silently (won't error). The auto-loa
 - `md <dir>` — mkdir -p && cd
 - `extract <archive>` — universal extractor
 - `fs [path]` — file or directory size
-- `load-secrets` — pull `OPENAI_API_KEY` / `LB_TOKEN` from 1Password (see [Secrets](#secrets))
+- `load-secrets` — pull `OPENAI_API_KEY` / `LB_TOKEN` / `TRMNL_PLUGIN_UUID` from 1Password (see [Secrets](#secrets))
 - `z <fragment>` / `zi` — zoxide jump / fzf picker
 - `Ctrl-R` — fzf history search
 - `Ctrl-T` — fzf file picker

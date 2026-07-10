@@ -72,29 +72,19 @@
 [user]
 	name = bbohling
 	email = brandon@bohling.me
-	signingkey = 1A03FC211D0455B2
+	signingkey = EB6F1C3A12DB1997
 
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
 
-# Intel proxy for git over HTTPS (work repos). .gitconfig-personal unsets these.
-# These MUST come before the [includeIf] blocks below — last write wins, and the
-# personal include needs to land after the proxy URLs to override them.
 [http]
 	postBuffer = 1048576000
-[http "https://github.com"]
-	proxy = http://proxy-dmz.intel.com:912
-[http "https://lfs.github.com"]
-	proxy = http://proxy-dmz.intel.com:912
-[http "https://github-cloud.s3.amazonaws.com"]
-	proxy = http://proxy-dmz.intel.com:912
-[http "https://github-cloud.githubusercontent.com"]
-	proxy = http://proxy-dmz.intel.com:912
 
-# Per-directory identity overrides — keep these at the bottom so they win.
-# ~/excl/ contains work repos; ~/excl/🥃/ is personal. Order matters: the personal
-# include comes after the work one so it wins for repos under ~/excl/🥃/.
+# Per-directory overrides — keep these at the bottom so they win.
+# ~/excl/ contains work repos (Intel identity + proxy, via .gitconfig-work);
+# ~/excl/🥃/ is personal. Order matters: the personal include comes after the
+# work one so it wins for repos under ~/excl/🥃/.
 [includeIf "gitdir:~/excl/"]
 	path = ~/.gitconfig-work
 [includeIf "gitdir:~/excl/🥃/"]

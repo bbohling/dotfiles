@@ -54,26 +54,33 @@ done
 alias reload='exec zsh'
 
 # ---- Intel proxy detection ----
-if timeout 0.3 nc -z proxy-dmz.intel.com 911 2>/dev/null ; then
-  launchctl setenv HTTPS_PROXY http://proxy-dmz.intel.com:912
-  launchctl setenv HTTP_PROXY http://proxy-dmz.intel.com:912
-  export http_proxy="http://proxy-dmz.intel.com:912"
-  export https_proxy="http://proxy-dmz.intel.com:912"
-  export all_proxy="http://proxy-dmz.intel.com:912"
-  export socks_proxy="socks5://proxy-dmz.intel.com:1080"
-  export no_proxy="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
-  export proxy_status=proxy_yes
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  echo "!! Intel proxies detected !!"
-  echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+if [[ $(hostname) != "bigMini.local" ]]; then
+  if timeout 0.3 nc -z proxy-dmz.intel.com 911 2>/dev/null ; then
+    launchctl setenv HTTPS_PROXY http://proxy-dmz.intel.com:912
+    launchctl setenv HTTP_PROXY http://proxy-dmz.intel.com:912
+    export http_proxy="http://proxy-dmz.intel.com:912"
+    export https_proxy="http://proxy-dmz.intel.com:912"
+    export all_proxy="http://proxy-dmz.intel.com:912"
+    export socks_proxy="socks5://proxy-dmz.intel.com:1080"
+    export no_proxy="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
+    export proxy_status=proxy_yes
+    echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    echo "!! Intel proxies detected !!"
+    echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+  else
+    unset all_proxy http_proxy https_proxy socks_proxy HTTP_PROXY HTTPS_PROXY no_proxy NO_PROXY
+    launchctl unsetenv https_proxy
+    launchctl unsetenv http_proxy
+    export proxy_status=no_proxy
+    echo "~~~~~~~~~~~~~~~~~~~~~~~"
+    echo "!! Intel proxies unset !!"
+    echo "~~~~~~~~~~~~~~~~~~~~~~~"
+  fi
 else
   unset all_proxy http_proxy https_proxy socks_proxy HTTP_PROXY HTTPS_PROXY no_proxy NO_PROXY
   launchctl unsetenv https_proxy
   launchctl unsetenv http_proxy
   export proxy_status=no_proxy
-  echo "~~~~~~~~~~~~~~~~~~~~~~~"
-  echo "!! Intel proxies unset !!"
-  echo "~~~~~~~~~~~~~~~~~~~~~~~"
 fi
 
 # ---- Tool integrations ----
@@ -104,3 +111,8 @@ if [ -f '/Users/bbohling/excl/google-skills/google-cloud-sdk/path.zsh.inc' ]; th
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bbohling/excl/google-skills/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bbohling/excl/google-skills/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/brandon/.lmstudio/bin"
+# End of LM Studio CLI section
+

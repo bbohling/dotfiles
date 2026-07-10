@@ -23,9 +23,15 @@ export BUN_INSTALL="$HOME/.bun"
 export GPG_TTY=$(tty)
 
 # Local TLS dev material (paths only; files live outside the repo)
-export TLS_KEY_PATH="$HOME/excl/ssl/localdevKey.pem"
-export TLS_CERT_PATH="$HOME/excl/ssl/localdevCert.pem"
-export NODE_EXTRA_CA_CERTS="$HOME/excl/ssl/cacerts.pem"
+if [[ $(hostname) != "bigMini.local" ]]; then
+  export TLS_KEY_PATH="$HOME/excl/ssl/localdevKey.pem"
+  export TLS_CERT_PATH="$HOME/excl/ssl/localdevCert.pem"
+  export NODE_EXTRA_CA_CERTS="$HOME/excl/ssl/cacerts.pem"
+else
+  unset TLS_KEY_PATH
+  unset TLS_CERT_PATH
+  unset NODE_EXTRA_CA_CERTS
+fi
 
 # PATH — single source of truth.
 # `typeset -U path` keeps the array deduplicated as entries get prepended/appended.

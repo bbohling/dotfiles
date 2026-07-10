@@ -2,9 +2,9 @@
 	email = brandon@bohling.me
 	signingkey = 1A03FC211D0455B2
 
-# Personal repos go straight to GitHub — unset the Intel proxies set in .gitconfig.
-[http]
-	proxy =
+# Repos under ~/excl/🥃/ also match the ~/excl/ includeIf, which pulls in the
+# Intel proxies from .gitconfig-work. Unset them here — this include comes
+# after the work one, so these empty values win.
 [http "https://github.com"]
 	proxy =
 [http "https://lfs.github.com"]

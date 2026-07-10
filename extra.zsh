@@ -18,6 +18,17 @@
 alias dt-encrypt="dt github encrypt-vault-secret --vault-name 'Squirrels' --username bbohling"
 alias dt-decrypt="dt github decrypt-vault-secret --vault-name 'Squirrels' --username bbohling"
 
+# Resolve a bounded-wait command. macOS has no `timeout` binary by default —
+# GNU coreutils installs it as `gtimeout`. Prefer `timeout`, fall back to
+# `gtimeout`, and if neither exists call op directly (empty array expands away).
+if command -v timeout &>/dev/null; then
+  _op_timeout=(timeout 2)
+elif command -v gtimeout &>/dev/null; then
+  _op_timeout=(gtimeout 2)
+else
+  _op_timeout=()
+fi
+
 # Pull secrets from 1Password. Available as a function so you can reload
 # after signing in (`load-secrets` then `reload`) without the startup penalty
 # of probing op every time.
@@ -25,7 +36,7 @@ load-secrets() {
   if ! command -v op &>/dev/null; then
     echo "op CLI not installed" >&2; return 1
   fi
-  if ! timeout 1 op whoami &>/dev/null; then
+  if ! "${_op_timeout[@]}" op whoami &>/dev/null; then
     echo "1Password CLI not authenticated. Enable desktop integration in the" >&2
     echo "1Password app (Settings → Developer → 'Connect with 1Password CLI')," >&2
     echo "then re-run this. Or: op signin" >&2
@@ -33,13 +44,14 @@ load-secrets() {
   fi
   export OPENAI_API_KEY="$(op read 'op://Private/OpenAI API Token/credential' 2>/dev/null)"
   export LB_TOKEN="$(op read 'op://Private/LB Token/credential' 2>/dev/null)"
+  export TRMNL_PLUGIN_UUID="$(op read 'op://Private/TRMNL Plugin UUID/credential' 2>/dev/null)"
 }
 
 # Auto-load on shell start, but skip entirely when secrets are already in
 # the environment (they survive `exec zsh`/`reload`). This means only the
 # first shell of the day pays the op-probe timeout; reloads are free.
-if [ -z "${OPENAI_API_KEY:-}" ] || [ -z "${LB_TOKEN:-}" ]; then
-  command -v op &>/dev/null && timeout 0.3 op whoami &>/dev/null && load-secrets &>/dev/null
+if [ -z "${OPENAI_API_KEY:-}" ] || [ -z "${LB_TOKEN:-}" ] || [ -z "${TRMNL_PLUGIN_UUID:-}" ]; then
+  command -v op &>/dev/null && "${_op_timeout[@]}" op whoami &>/dev/null && load-secrets &>/dev/null
 fi
 
 # Disabled — left for reference if you ever switch Claude Code back to Bedrock.

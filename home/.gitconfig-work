@@ -1,3 +1,15 @@
 [user]
 	email = brandon.bohling@intel.com
 	signingkey = 8249D337BA4ABB08
+
+# Intel proxy for git over HTTPS — this file is included via includeIf for
+# ~/excl/ only, so repos elsewhere never see a proxy. Personal repos under
+# ~/excl/🥃/ match ~/excl/ too; .gitconfig-personal unsets these after.
+[http "https://github.com"]
+	proxy = http://proxy-dmz.intel.com:912
+[http "https://lfs.github.com"]
+	proxy = http://proxy-dmz.intel.com:912
+[http "https://github-cloud.s3.amazonaws.com"]
+	proxy = http://proxy-dmz.intel.com:912
+[http "https://github-cloud.githubusercontent.com"]
+	proxy = http://proxy-dmz.intel.com:912
