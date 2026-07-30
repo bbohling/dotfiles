@@ -15,7 +15,7 @@ export VISUAL="$EDITOR"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-# Runtime homes (used by other tools to find the binaries even from non-interactive shells)
+# Runtime homes (used by other tools to find the GOaries even from non-interactive shells)
 export VOLTA_HOME="$HOME/.volta"
 export BUN_INSTALL="$HOME/.bun"
 
@@ -36,6 +36,7 @@ path=(
   $HOME/.node/bin
   $VOLTA_HOME/bin
   $BUN_INSTALL/bin
+  $HOME/go/bin
   /opt/homebrew/opt/postgresql@17/bin
   /opt/homebrew/opt/python@3.10/bin
   /opt/homebrew/opt/sphinx-doc/bin
