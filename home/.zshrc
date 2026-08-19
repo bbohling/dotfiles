@@ -61,7 +61,7 @@ if timeout 0.3 nc -z proxy-dmz.intel.com 911 2>/dev/null ; then
   export https_proxy="http://proxy-dmz.intel.com:912"
   export all_proxy="http://proxy-dmz.intel.com:912"
   export socks_proxy="socks5://proxy-dmz.intel.com:1080"
-  export no_proxy="127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
+  export no_proxy=".ai.azure.com,.cognitiveservices.azure.com,.openai.azure.com,localhost,127.0.0.1,.intel.com,10.164.205.0/26,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,127.0.0.1,localhost,.internal,.local,git.ops.smartperimeter.io,gateway.smart-edge.dev,ui.smart-edge.dev,.irv-colo.smart-edge.net,.intel.com"
   export proxy_status=proxy_yes
   echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   echo "!! Intel proxies detected !!"
