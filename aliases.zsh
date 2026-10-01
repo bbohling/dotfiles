@@ -36,3 +36,7 @@ alias work="cd $HOME/excl"
 alias ghcp="gh copilot"
 
 alias fixwifi="sudo killall -HUP mDNSResponder"
+
+alias copilotapp="HTTPS_PROXY=http://proxy-dmz.intel.com:912 open -na \"/Applications/GitHub Copilot.app/Contents/MacOS/github\""
+alias cursorapp="HTTPS_PROXY=http://proxy-dmz.intel.com:912 open -na \"/Applications/Cursor.app/Contents/MacOS/cursor\""
+alias claudeapp="HTTPS_PROXY=http://proxy-dmz.intel.com:912 open -na \"/Applications/Claude.app/Contents/MacOS/claude\""
